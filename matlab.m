@@ -14,11 +14,14 @@ figure;
 subplot(2,2,1); % subplot(linhas, colunas, posição)
 plot(u);
 title('Vetor u');
+grid on;
 
 subplot(2,2,2); % subplot(linhas, colunas, posição)
 plot(v);
 title('Vetor v');
+grid on;
 
 subplot(2,2,3); % subplot(linhas, colunas, posição)
 plot(uint16(u).*uint16(v))
 title('Produto elemento a elemento (u .* v)');
+grid on;
