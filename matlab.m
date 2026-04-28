@@ -8,6 +8,10 @@ x = sin(y);
 u = uint8((x+1)*128);
 v = uint8(255-y);
 
+% Exporta vetores para usar no Quartus
+writematrix(u', 'u.txt');
+writematrix(v', 'v.txt');
+
 % Plota gráficos
 figure;
 
