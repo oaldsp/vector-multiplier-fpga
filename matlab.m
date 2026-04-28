@@ -7,6 +7,7 @@ y = 0:1:255;
 x = sin(y);
 u = uint8((x+1)*128);
 v = uint8(255-y);
+output = readmatrix('stp1.csv'); % Para ler saída do Quartus
 
 % Exporta vetores para usar no Quartus
 writematrix(u', 'u.txt');
@@ -15,18 +16,23 @@ writematrix(v', 'v.txt');
 % Plota gráficos
 figure;
 
-subplot(2,2,1); % subplot(linhas, colunas, posição)
+subplot(2, 2, 1); % subplot(linhas, colunas, posição)
 plot(u);
 title('Vetor u');
 grid on;
 
-subplot(2,2,2); % subplot(linhas, colunas, posição)
+subplot(2, 2, 2); % subplot(linhas, colunas, posição)
 plot(v);
 title('Vetor v');
 grid on;
 
-subplot(2,2,3); % subplot(linhas, colunas, posição)
+subplot(2, 2, 3); % subplot(linhas, colunas, posição)
 plot(uint16(u).*uint16(v))
-title('Produto elemento a elemento (u .* v)');
+title('MATLAB - Produto elemento a elemento (u .* v)');
+grid on;
+
+subplot(2, 2, 4); % subplot(linhas, colunas, posição)
+plot(output)
+title('SIGNALTAP - Produto elemento a elemento (u .* v)');
 grid on;
 
