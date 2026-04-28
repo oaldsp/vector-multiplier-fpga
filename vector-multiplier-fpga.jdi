@@ -1,8 +1,8 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="840b0665c6454762a927"/>
+    <hash md5_digest_80b="5ac477f5431a412a8e84"/>
   </project>
   <file_info>
-    <file device="5CGXFC7C7F23C8" path="vector-multiplier-fpga.sof" usercode="0xFFFFFFFF"/>
+    <file device="10M50DAF484C7G" path="vector-multiplier-fpga.sof" usercode="0xFFFFFFFF"/>
   </file_info>
 </sld_project_info>

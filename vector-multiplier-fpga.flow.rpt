@@ -1,5 +1,5 @@
 Flow report for vector-multiplier-fpga
-Tue Apr 28 08:28:12 2026
+Tue Apr 28 08:54:45 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -37,29 +37,28 @@ refer to the applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Apr 28 08:28:12 2026       ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                   ; vector-multiplier-fpga                      ;
-; Top-level Entity Name           ; vector_multiplier_fpga                      ;
-; Family                          ; Cyclone V                                   ;
-; Device                          ; 5CGXFC7C7F23C8                              ;
-; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 5 / 56,480 ( < 1 % )                        ;
-; Total registers                 ; 8                                           ;
-; Total pins                      ; 18 / 268 ( 7 % )                            ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 4,096 / 7,024,640 ( < 1 % )                 ;
-; Total DSP Blocks                ; 0 / 156 ( 0 % )                             ;
-; Total HSSI RX PCSs              ; 0 / 6 ( 0 % )                               ;
-; Total HSSI PMA RX Deserializers ; 0 / 6 ( 0 % )                               ;
-; Total HSSI TX PCSs              ; 0 / 6 ( 0 % )                               ;
-; Total HSSI PMA TX Serializers   ; 0 / 6 ( 0 % )                               ;
-; Total PLLs                      ; 0 / 13 ( 0 % )                              ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
-+---------------------------------+---------------------------------------------+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Tue Apr 28 08:54:45 2026       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; vector-multiplier-fpga                      ;
+; Top-level Entity Name              ; vector_multiplier_fpga                      ;
+; Family                             ; MAX 10                                      ;
+; Device                             ; 10M50DAF484C7G                              ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 9 / 49,760 ( < 1 % )                        ;
+;     Total combinational functions  ; 9 / 49,760 ( < 1 % )                        ;
+;     Dedicated logic registers      ; 8 / 49,760 ( < 1 % )                        ;
+; Total registers                    ; 8                                           ;
+; Total pins                         ; 34 / 360 ( 9 % )                            ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 4,096 / 1,677,312 ( < 1 % )                 ;
+; Embedded Multiplier 9-bit elements ; 1 / 288 ( < 1 % )                           ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0 / 2 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
 
 
 +--------------------------------------------+
@@ -67,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+------------------------+
 ; Option            ; Setting                ;
 +-------------------+------------------------+
-; Start date & time ; 04/28/2026 08:22:08    ;
+; Start date & time ; 04/28/2026 08:38:22    ;
 ; Main task         ; Compilation            ;
 ; Revision Name     ; vector-multiplier-fpga ;
 +-------------------+------------------------+
@@ -78,9 +77,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+------------------------+------------------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value          ; Entity Name            ; Section Id ;
 +-------------------------------------+----------------------------------------+------------------------+------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 110073156466054.177737532712356        ; --                     ; --                     ; --         ;
+; COMPILER_SIGNATURE_ID               ; 110073156466054.177737630112904        ; --                     ; --                     ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --                     ; --                     ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --                     ; --                     ; --         ;
+; MISC_FILE                           ; multiplier.bsf                         ; --                     ; --                     ; --         ;
+; MISC_FILE                           ; multiplier_inst.vhd                    ; --                     ; --                     ; --         ;
+; MISC_FILE                           ; multiplier.inc                         ; --                     ; --                     ; --         ;
+; MISC_FILE                           ; multiplier.cmp                         ; --                     ; --                     ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                      ; --                     ; --                     ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                      ; --                     ; --                     ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                             ; --                     ; --                     ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                             ; --                     ; --                     ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --                     ; vector_multiplier_fpga ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --                     ; vector_multiplier_fpga ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --                     ; vector_multiplier_fpga ; Top        ;
@@ -95,16 +102,23 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:36     ; 1.0                     ; 4881 MB             ; 00:00:48                           ;
-; Fitter               ; 00:01:48     ; 1.0                     ; 6383 MB             ; 00:01:53                           ;
-; Assembler            ; 00:00:31     ; 1.0                     ; 4820 MB             ; 00:00:23                           ;
-; Timing Analyzer      ; 00:00:19     ; 1.0                     ; 5148 MB             ; 00:00:14                           ;
-; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4704 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4702 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4713 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4702 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4713 MB             ; 00:00:03                           ;
-; Total                ; 00:03:32     ; --                      ; --                  ; 00:03:33                           ;
+; Analysis & Synthesis ; 00:00:35     ; 1.0                     ; 4815 MB             ; 00:00:48                           ;
+; Fitter               ; 00:00:36     ; 1.0                     ; 5343 MB             ; 00:00:37                           ;
+; Assembler            ; 00:00:09     ; 1.0                     ; 4677 MB             ; 00:00:08                           ;
+; Timing Analyzer      ; 00:00:09     ; 1.0                     ; 4781 MB             ; 00:00:06                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4621 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4642 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4621 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4642 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4621 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4646 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4621 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4642 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4621 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4642 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4621 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4646 MB             ; 00:00:02                           ;
+; Total                ; 00:01:58     ; --                      ; --                  ; 00:02:03                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -122,6 +136,13 @@ refer to the applicable agreement for further details.
 ; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-QOK5CQU  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -132,11 +153,18 @@ quartus_map --read_settings_files=on --write_settings_files=off vector_multiplie
 quartus_fit --read_settings_files=off --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga
 quartus_asm --read_settings_files=off --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga
 quartus_sta vector_multiplier_fpga -c vector-multiplier-fpga
-quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga --vector_source=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/Waveform1.vwf --testbench_file=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/Waveform1.vwf.vt
 quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga --vector_source=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/Waveform.vwf --testbench_file=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/Waveform.vwf.vt
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/ vector_multiplier_fpga -c vector-multiplier-fpga
 quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga --vector_source=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/Waveform.vwf --testbench_file=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/Waveform.vwf.vt
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/ vector_multiplier_fpga -c vector-multiplier-fpga
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga --vector_source=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/Waveform.vwf --testbench_file=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/ vector_multiplier_fpga -c vector-multiplier-fpga
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga --vector_source=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/Waveform.vwf --testbench_file=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/ vector_multiplier_fpga -c vector-multiplier-fpga
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga --vector_source=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/Waveform.vwf --testbench_file=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/ vector_multiplier_fpga -c vector-multiplier-fpga
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga --vector_source=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/Waveform.vwf --testbench_file=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim/ vector_multiplier_fpga -c vector-multiplier-fpga
 
 
 

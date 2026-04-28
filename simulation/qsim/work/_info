@@ -8,45 +8,140 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/simulation/qsim
-vvector_multiplier_fpga
-Z1 !s110 1777375695
-!i10b 1
-!s100 z@b`n[fiMK0iB7EiIIJ9E2
-I_liaOCZ3l=VN:dd3PBAVJ0
-Z2 VDg1SIo80bB@j0V0VzS_@n1
+Ehard_block
+Z1 w1777377285
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx11 fiftyfivenm 21 fiftyfivenm_atom_pack 0 22 7d5Xo;QBOkc31OfQTzSXV0
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z7 DPx11 fiftyfivenm 22 fiftyfivenm_components 0 22 IfY7Mh2WPBc;@7U@3<I^[0
 R0
-w1777375692
-8vector-multiplier-fpga.vo
-Fvector-multiplier-fpga.vo
-L0 31
-Z3 OV;L;10.5b;63
-r1
-!s85 0
-31
-Z4 !s108 1777375695.000000
-!s107 vector-multiplier-fpga.vo|
-!s90 -work|work|vector-multiplier-fpga.vo|
-!i113 1
-Z5 o-work work
-Z6 tCvgOpt 0
-vvector_multiplier_fpga_vlg_vec_tst
-R1
+Z8 8vector-multiplier-fpga.vho
+Z9 Fvector-multiplier-fpga.vho
+l0
+L34
+V8_BbEmGd;OHS6h@;gFc7W3
+!s100 ROH=D<N4CT6aCZ<37A[_?0
+Z10 OV;C;10.5b;63
+32
+Z11 !s110 1777377287
 !i10b 1
-!s100 nVzmU5^G6zN<;5C2j3hmT2
-IWAHal8KYSgLcKIS8@>>0T2
+Z12 !s108 1777377287.000000
+Z13 !s90 -work|work|vector-multiplier-fpga.vho|
+Z14 !s107 vector-multiplier-fpga.vho|
+!i113 1
+Z15 o-work work
+Z16 tExplicit 1 CvgOpt 0
+Astructure
 R2
-R0
-w1777375688
-8Waveform.vwf.vt
-FWaveform.vwf.vt
-L0 29
 R3
-r1
-!s85 0
-31
 R4
-!s107 Waveform.vwf.vt|
-!s90 -work|work|Waveform.vwf.vt|
-!i113 1
 R5
 R6
+R7
+DEx4 work 10 hard_block 0 22 8_BbEmGd;OHS6h@;gFc7W3
+l75
+L53
+Vg=W`CQ>24lhYF71zFSkY43
+!s100 zW6ML5NVY?Ai`]`n2XhME3
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Evector_multiplier_fpga
+R1
+R3
+R7
+R2
+Z17 DPx6 altera 11 dffeas_pack 0 22 :S1C`o89Vbe5bV6`:6CaB3
+R4
+R5
+R6
+Z18 DPx6 altera 28 altera_primitives_components 0 22 z?[99Tn<@QGNik3V1c6ah1
+R0
+R8
+R9
+l0
+L90
+VPh?HK5;8ihBfigCMEREFH2
+!s100 DOg^AGfOME`GT`cz[]2oK1
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Astructure
+R3
+R7
+R2
+R17
+R4
+R5
+R6
+R18
+DEx4 work 22 vector_multiplier_fpga 0 22 Ph?HK5;8ihBfigCMEREFH2
+l248
+L137
+Vgi:SGk81n524iQVl=9bMN0
+!s100 N6MhEPFlaaHn?zIeoAcMi0
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Evector_multiplier_fpga_vhd_vec_tst
+Z19 w1777377279
+R5
+R6
+R0
+Z20 8Waveform.vwf.vht
+Z21 FWaveform.vwf.vht
+l0
+L31
+Vk0i?kSI4;JA9njno>L^G13
+!s100 m:7Ja`Th=EYJgm=7o_h`I0
+R10
+32
+Z22 !s110 1777377288
+!i10b 1
+Z23 !s108 1777377288.000000
+Z24 !s90 -work|work|Waveform.vwf.vht|
+Z25 !s107 Waveform.vwf.vht|
+!i113 1
+R15
+R16
+Avector_multiplier_fpga_arch
+R5
+R6
+Z26 DEx4 work 34 vector_multiplier_fpga_vhd_vec_tst 0 22 k0i?kSI4;JA9njno>L^G13
+l50
+L33
+Z27 VFCfIEaW7HXYfbe_lQ7WO92
+Z28 !s100 MzGF]Mb2PVCF5jK6Rz1Mb0
+R10
+32
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R15
+R16

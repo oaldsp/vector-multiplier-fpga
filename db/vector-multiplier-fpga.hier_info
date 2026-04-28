@@ -1,4 +1,23 @@
 |vector_multiplier_fpga
+result[0] <= multiplier:inst1.result[0]
+result[1] <= multiplier:inst1.result[1]
+result[2] <= multiplier:inst1.result[2]
+result[3] <= multiplier:inst1.result[3]
+result[4] <= multiplier:inst1.result[4]
+result[5] <= multiplier:inst1.result[5]
+result[6] <= multiplier:inst1.result[6]
+result[7] <= multiplier:inst1.result[7]
+result[8] <= multiplier:inst1.result[8]
+result[9] <= multiplier:inst1.result[9]
+result[10] <= multiplier:inst1.result[10]
+result[11] <= multiplier:inst1.result[11]
+result[12] <= multiplier:inst1.result[12]
+result[13] <= multiplier:inst1.result[13]
+result[14] <= multiplier:inst1.result[14]
+result[15] <= multiplier:inst1.result[15]
+clk => memoryU:inst.clock
+clk => address_counter:inst4.clock
+clk => memoryV:inst2.clock
 u[0] <= memoryU:inst.q[0]
 u[1] <= memoryU:inst.q[1]
 u[2] <= memoryU:inst.q[2]
@@ -7,9 +26,6 @@ u[4] <= memoryU:inst.q[4]
 u[5] <= memoryU:inst.q[5]
 u[6] <= memoryU:inst.q[6]
 u[7] <= memoryU:inst.q[7]
-clk => memoryU:inst.clock
-clk => address_counter:inst4.clock
-clk => memoryV:inst2.clock
 v[0] <= memoryV:inst2.q[0]
 v[1] <= memoryV:inst2.q[1]
 v[2] <= memoryV:inst2.q[2]
@@ -19,6 +35,116 @@ v[5] <= memoryV:inst2.q[5]
 v[6] <= memoryV:inst2.q[6]
 v[7] <= memoryV:inst2.q[7]
 MAX10_CLK1_50 => clock_divider:inst5.clock
+
+
+|vector_multiplier_fpga|multiplier:inst1
+dataa[0] => lpm_mult:lpm_mult_component.dataa[0]
+dataa[1] => lpm_mult:lpm_mult_component.dataa[1]
+dataa[2] => lpm_mult:lpm_mult_component.dataa[2]
+dataa[3] => lpm_mult:lpm_mult_component.dataa[3]
+dataa[4] => lpm_mult:lpm_mult_component.dataa[4]
+dataa[5] => lpm_mult:lpm_mult_component.dataa[5]
+dataa[6] => lpm_mult:lpm_mult_component.dataa[6]
+dataa[7] => lpm_mult:lpm_mult_component.dataa[7]
+datab[0] => lpm_mult:lpm_mult_component.datab[0]
+datab[1] => lpm_mult:lpm_mult_component.datab[1]
+datab[2] => lpm_mult:lpm_mult_component.datab[2]
+datab[3] => lpm_mult:lpm_mult_component.datab[3]
+datab[4] => lpm_mult:lpm_mult_component.datab[4]
+datab[5] => lpm_mult:lpm_mult_component.datab[5]
+datab[6] => lpm_mult:lpm_mult_component.datab[6]
+datab[7] => lpm_mult:lpm_mult_component.datab[7]
+result[0] <= lpm_mult:lpm_mult_component.result[0]
+result[1] <= lpm_mult:lpm_mult_component.result[1]
+result[2] <= lpm_mult:lpm_mult_component.result[2]
+result[3] <= lpm_mult:lpm_mult_component.result[3]
+result[4] <= lpm_mult:lpm_mult_component.result[4]
+result[5] <= lpm_mult:lpm_mult_component.result[5]
+result[6] <= lpm_mult:lpm_mult_component.result[6]
+result[7] <= lpm_mult:lpm_mult_component.result[7]
+result[8] <= lpm_mult:lpm_mult_component.result[8]
+result[9] <= lpm_mult:lpm_mult_component.result[9]
+result[10] <= lpm_mult:lpm_mult_component.result[10]
+result[11] <= lpm_mult:lpm_mult_component.result[11]
+result[12] <= lpm_mult:lpm_mult_component.result[12]
+result[13] <= lpm_mult:lpm_mult_component.result[13]
+result[14] <= lpm_mult:lpm_mult_component.result[14]
+result[15] <= lpm_mult:lpm_mult_component.result[15]
+
+
+|vector_multiplier_fpga|multiplier:inst1|lpm_mult:lpm_mult_component
+dataa[0] => mult_inm:auto_generated.dataa[0]
+dataa[1] => mult_inm:auto_generated.dataa[1]
+dataa[2] => mult_inm:auto_generated.dataa[2]
+dataa[3] => mult_inm:auto_generated.dataa[3]
+dataa[4] => mult_inm:auto_generated.dataa[4]
+dataa[5] => mult_inm:auto_generated.dataa[5]
+dataa[6] => mult_inm:auto_generated.dataa[6]
+dataa[7] => mult_inm:auto_generated.dataa[7]
+datab[0] => mult_inm:auto_generated.datab[0]
+datab[1] => mult_inm:auto_generated.datab[1]
+datab[2] => mult_inm:auto_generated.datab[2]
+datab[3] => mult_inm:auto_generated.datab[3]
+datab[4] => mult_inm:auto_generated.datab[4]
+datab[5] => mult_inm:auto_generated.datab[5]
+datab[6] => mult_inm:auto_generated.datab[6]
+datab[7] => mult_inm:auto_generated.datab[7]
+sum[0] => ~NO_FANOUT~
+aclr => ~NO_FANOUT~
+sclr => ~NO_FANOUT~
+clock => ~NO_FANOUT~
+clken => ~NO_FANOUT~
+result[0] <= mult_inm:auto_generated.result[0]
+result[1] <= mult_inm:auto_generated.result[1]
+result[2] <= mult_inm:auto_generated.result[2]
+result[3] <= mult_inm:auto_generated.result[3]
+result[4] <= mult_inm:auto_generated.result[4]
+result[5] <= mult_inm:auto_generated.result[5]
+result[6] <= mult_inm:auto_generated.result[6]
+result[7] <= mult_inm:auto_generated.result[7]
+result[8] <= mult_inm:auto_generated.result[8]
+result[9] <= mult_inm:auto_generated.result[9]
+result[10] <= mult_inm:auto_generated.result[10]
+result[11] <= mult_inm:auto_generated.result[11]
+result[12] <= mult_inm:auto_generated.result[12]
+result[13] <= mult_inm:auto_generated.result[13]
+result[14] <= mult_inm:auto_generated.result[14]
+result[15] <= mult_inm:auto_generated.result[15]
+
+
+|vector_multiplier_fpga|multiplier:inst1|lpm_mult:lpm_mult_component|mult_inm:auto_generated
+dataa[0] => mac_mult1.DATAA
+dataa[1] => mac_mult1.DATAA1
+dataa[2] => mac_mult1.DATAA2
+dataa[3] => mac_mult1.DATAA3
+dataa[4] => mac_mult1.DATAA4
+dataa[5] => mac_mult1.DATAA5
+dataa[6] => mac_mult1.DATAA6
+dataa[7] => mac_mult1.DATAA7
+datab[0] => mac_mult1.DATAB
+datab[1] => mac_mult1.DATAB1
+datab[2] => mac_mult1.DATAB2
+datab[3] => mac_mult1.DATAB3
+datab[4] => mac_mult1.DATAB4
+datab[5] => mac_mult1.DATAB5
+datab[6] => mac_mult1.DATAB6
+datab[7] => mac_mult1.DATAB7
+result[0] <= mac_out2.DATAOUT
+result[1] <= mac_out2.DATAOUT1
+result[2] <= mac_out2.DATAOUT2
+result[3] <= mac_out2.DATAOUT3
+result[4] <= mac_out2.DATAOUT4
+result[5] <= mac_out2.DATAOUT5
+result[6] <= mac_out2.DATAOUT6
+result[7] <= mac_out2.DATAOUT7
+result[8] <= mac_out2.DATAOUT8
+result[9] <= mac_out2.DATAOUT9
+result[10] <= mac_out2.DATAOUT10
+result[11] <= mac_out2.DATAOUT11
+result[12] <= mac_out2.DATAOUT12
+result[13] <= mac_out2.DATAOUT13
+result[14] <= mac_out2.DATAOUT14
+result[15] <= mac_out2.DATAOUT15
 
 
 |vector_multiplier_fpga|memoryU:inst
@@ -55,18 +181,18 @@ data_a[5] => ~NO_FANOUT~
 data_a[6] => ~NO_FANOUT~
 data_a[7] => ~NO_FANOUT~
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_ak14:auto_generated.address_a[0]
-address_a[1] => altsyncram_ak14:auto_generated.address_a[1]
-address_a[2] => altsyncram_ak14:auto_generated.address_a[2]
-address_a[3] => altsyncram_ak14:auto_generated.address_a[3]
-address_a[4] => altsyncram_ak14:auto_generated.address_a[4]
-address_a[5] => altsyncram_ak14:auto_generated.address_a[5]
-address_a[6] => altsyncram_ak14:auto_generated.address_a[6]
-address_a[7] => altsyncram_ak14:auto_generated.address_a[7]
+address_a[0] => altsyncram_goq3:auto_generated.address_a[0]
+address_a[1] => altsyncram_goq3:auto_generated.address_a[1]
+address_a[2] => altsyncram_goq3:auto_generated.address_a[2]
+address_a[3] => altsyncram_goq3:auto_generated.address_a[3]
+address_a[4] => altsyncram_goq3:auto_generated.address_a[4]
+address_a[5] => altsyncram_goq3:auto_generated.address_a[5]
+address_a[6] => altsyncram_goq3:auto_generated.address_a[6]
+address_a[7] => altsyncram_goq3:auto_generated.address_a[7]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_ak14:auto_generated.clock0
+clock0 => altsyncram_goq3:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -76,21 +202,21 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_ak14:auto_generated.q_a[0]
-q_a[1] <= altsyncram_ak14:auto_generated.q_a[1]
-q_a[2] <= altsyncram_ak14:auto_generated.q_a[2]
-q_a[3] <= altsyncram_ak14:auto_generated.q_a[3]
-q_a[4] <= altsyncram_ak14:auto_generated.q_a[4]
-q_a[5] <= altsyncram_ak14:auto_generated.q_a[5]
-q_a[6] <= altsyncram_ak14:auto_generated.q_a[6]
-q_a[7] <= altsyncram_ak14:auto_generated.q_a[7]
+q_a[0] <= altsyncram_goq3:auto_generated.q_a[0]
+q_a[1] <= altsyncram_goq3:auto_generated.q_a[1]
+q_a[2] <= altsyncram_goq3:auto_generated.q_a[2]
+q_a[3] <= altsyncram_goq3:auto_generated.q_a[3]
+q_a[4] <= altsyncram_goq3:auto_generated.q_a[4]
+q_a[5] <= altsyncram_goq3:auto_generated.q_a[5]
+q_a[6] <= altsyncram_goq3:auto_generated.q_a[6]
+q_a[7] <= altsyncram_goq3:auto_generated.q_a[7]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|vector_multiplier_fpga|memoryU:inst|altsyncram:altsyncram_component|altsyncram_ak14:auto_generated
+|vector_multiplier_fpga|memoryU:inst|altsyncram:altsyncram_component|altsyncram_goq3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -186,7 +312,7 @@ q[7] <= lpm_counter:LPM_COUNTER_component.q[7]
 
 
 |vector_multiplier_fpga|address_counter:inst4|lpm_counter:LPM_COUNTER_component
-clock => cntr_0ih:auto_generated.clock
+clock => cntr_44h:auto_generated.clock
 clk_en => ~NO_FANOUT~
 cnt_en => ~NO_FANOUT~
 updown => ~NO_FANOUT~
@@ -207,14 +333,14 @@ data[5] => ~NO_FANOUT~
 data[6] => ~NO_FANOUT~
 data[7] => ~NO_FANOUT~
 cin => ~NO_FANOUT~
-q[0] <= cntr_0ih:auto_generated.q[0]
-q[1] <= cntr_0ih:auto_generated.q[1]
-q[2] <= cntr_0ih:auto_generated.q[2]
-q[3] <= cntr_0ih:auto_generated.q[3]
-q[4] <= cntr_0ih:auto_generated.q[4]
-q[5] <= cntr_0ih:auto_generated.q[5]
-q[6] <= cntr_0ih:auto_generated.q[6]
-q[7] <= cntr_0ih:auto_generated.q[7]
+q[0] <= cntr_44h:auto_generated.q[0]
+q[1] <= cntr_44h:auto_generated.q[1]
+q[2] <= cntr_44h:auto_generated.q[2]
+q[3] <= cntr_44h:auto_generated.q[3]
+q[4] <= cntr_44h:auto_generated.q[4]
+q[5] <= cntr_44h:auto_generated.q[5]
+q[6] <= cntr_44h:auto_generated.q[6]
+q[7] <= cntr_44h:auto_generated.q[7]
 cout <= <GND>
 eq[0] <= <GND>
 eq[1] <= <GND>
@@ -234,7 +360,7 @@ eq[14] <= <GND>
 eq[15] <= <GND>
 
 
-|vector_multiplier_fpga|address_counter:inst4|lpm_counter:LPM_COUNTER_component|cntr_0ih:auto_generated
+|vector_multiplier_fpga|address_counter:inst4|lpm_counter:LPM_COUNTER_component|cntr_44h:auto_generated
 clock => counter_reg_bit[7].CLK
 clock => counter_reg_bit[6].CLK
 clock => counter_reg_bit[5].CLK
@@ -287,18 +413,18 @@ data_a[5] => ~NO_FANOUT~
 data_a[6] => ~NO_FANOUT~
 data_a[7] => ~NO_FANOUT~
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_bk14:auto_generated.address_a[0]
-address_a[1] => altsyncram_bk14:auto_generated.address_a[1]
-address_a[2] => altsyncram_bk14:auto_generated.address_a[2]
-address_a[3] => altsyncram_bk14:auto_generated.address_a[3]
-address_a[4] => altsyncram_bk14:auto_generated.address_a[4]
-address_a[5] => altsyncram_bk14:auto_generated.address_a[5]
-address_a[6] => altsyncram_bk14:auto_generated.address_a[6]
-address_a[7] => altsyncram_bk14:auto_generated.address_a[7]
+address_a[0] => altsyncram_hoq3:auto_generated.address_a[0]
+address_a[1] => altsyncram_hoq3:auto_generated.address_a[1]
+address_a[2] => altsyncram_hoq3:auto_generated.address_a[2]
+address_a[3] => altsyncram_hoq3:auto_generated.address_a[3]
+address_a[4] => altsyncram_hoq3:auto_generated.address_a[4]
+address_a[5] => altsyncram_hoq3:auto_generated.address_a[5]
+address_a[6] => altsyncram_hoq3:auto_generated.address_a[6]
+address_a[7] => altsyncram_hoq3:auto_generated.address_a[7]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_bk14:auto_generated.clock0
+clock0 => altsyncram_hoq3:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -308,21 +434,21 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_bk14:auto_generated.q_a[0]
-q_a[1] <= altsyncram_bk14:auto_generated.q_a[1]
-q_a[2] <= altsyncram_bk14:auto_generated.q_a[2]
-q_a[3] <= altsyncram_bk14:auto_generated.q_a[3]
-q_a[4] <= altsyncram_bk14:auto_generated.q_a[4]
-q_a[5] <= altsyncram_bk14:auto_generated.q_a[5]
-q_a[6] <= altsyncram_bk14:auto_generated.q_a[6]
-q_a[7] <= altsyncram_bk14:auto_generated.q_a[7]
+q_a[0] <= altsyncram_hoq3:auto_generated.q_a[0]
+q_a[1] <= altsyncram_hoq3:auto_generated.q_a[1]
+q_a[2] <= altsyncram_hoq3:auto_generated.q_a[2]
+q_a[3] <= altsyncram_hoq3:auto_generated.q_a[3]
+q_a[4] <= altsyncram_hoq3:auto_generated.q_a[4]
+q_a[5] <= altsyncram_hoq3:auto_generated.q_a[5]
+q_a[6] <= altsyncram_hoq3:auto_generated.q_a[6]
+q_a[7] <= altsyncram_hoq3:auto_generated.q_a[7]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|vector_multiplier_fpga|memoryV:inst2|altsyncram:altsyncram_component|altsyncram_bk14:auto_generated
+|vector_multiplier_fpga|memoryV:inst2|altsyncram:altsyncram_component|altsyncram_hoq3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -419,7 +545,7 @@ q[8] <= lpm_counter:LPM_COUNTER_component.q[8]
 
 
 |vector_multiplier_fpga|clock_divider:inst5|lpm_counter:LPM_COUNTER_component
-clock => cntr_1ih:auto_generated.clock
+clock => cntr_54h:auto_generated.clock
 clk_en => ~NO_FANOUT~
 cnt_en => ~NO_FANOUT~
 updown => ~NO_FANOUT~
@@ -441,15 +567,15 @@ data[6] => ~NO_FANOUT~
 data[7] => ~NO_FANOUT~
 data[8] => ~NO_FANOUT~
 cin => ~NO_FANOUT~
-q[0] <= cntr_1ih:auto_generated.q[0]
-q[1] <= cntr_1ih:auto_generated.q[1]
-q[2] <= cntr_1ih:auto_generated.q[2]
-q[3] <= cntr_1ih:auto_generated.q[3]
-q[4] <= cntr_1ih:auto_generated.q[4]
-q[5] <= cntr_1ih:auto_generated.q[5]
-q[6] <= cntr_1ih:auto_generated.q[6]
-q[7] <= cntr_1ih:auto_generated.q[7]
-q[8] <= cntr_1ih:auto_generated.q[8]
+q[0] <= cntr_54h:auto_generated.q[0]
+q[1] <= cntr_54h:auto_generated.q[1]
+q[2] <= cntr_54h:auto_generated.q[2]
+q[3] <= cntr_54h:auto_generated.q[3]
+q[4] <= cntr_54h:auto_generated.q[4]
+q[5] <= cntr_54h:auto_generated.q[5]
+q[6] <= cntr_54h:auto_generated.q[6]
+q[7] <= cntr_54h:auto_generated.q[7]
+q[8] <= cntr_54h:auto_generated.q[8]
 cout <= <GND>
 eq[0] <= <GND>
 eq[1] <= <GND>
@@ -469,7 +595,7 @@ eq[14] <= <GND>
 eq[15] <= <GND>
 
 
-|vector_multiplier_fpga|clock_divider:inst5|lpm_counter:LPM_COUNTER_component|cntr_1ih:auto_generated
+|vector_multiplier_fpga|clock_divider:inst5|lpm_counter:LPM_COUNTER_component|cntr_54h:auto_generated
 clock => counter_reg_bit[8].CLK
 clock => counter_reg_bit[7].CLK
 clock => counter_reg_bit[6].CLK

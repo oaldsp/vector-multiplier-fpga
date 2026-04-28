@@ -29,3 +29,4 @@ subplot(2,2,3); % subplot(linhas, colunas, posição)
 plot(uint16(u).*uint16(v))
 title('Produto elemento a elemento (u .* v)');
 grid on;
+
