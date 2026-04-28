@@ -1,5 +1,5 @@
 Analysis & Synthesis report for vector-multiplier-fpga
-Tue Apr 28 08:38:56 2026
+Tue Apr 28 09:04:37 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -20,16 +20,17 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  12. General Register Statistics
  13. Source assignments for memoryU:inst|altsyncram:altsyncram_component|altsyncram_goq3:auto_generated
  14. Source assignments for memoryV:inst2|altsyncram:altsyncram_component|altsyncram_hoq3:auto_generated
- 15. Parameter Settings for User Entity Instance: multiplier:inst1|lpm_mult:lpm_mult_component
- 16. Parameter Settings for User Entity Instance: memoryU:inst|altsyncram:altsyncram_component
- 17. Parameter Settings for User Entity Instance: address_counter:inst4|lpm_counter:LPM_COUNTER_component
- 18. Parameter Settings for User Entity Instance: memoryV:inst2|altsyncram:altsyncram_component
- 19. Parameter Settings for User Entity Instance: clock_divider:inst5|lpm_counter:LPM_COUNTER_component
- 20. lpm_mult Parameter Settings by Entity Instance
- 21. altsyncram Parameter Settings by Entity Instance
- 22. Post-Synthesis Netlist Statistics for Top Partition
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
+ 15. Parameter Settings for User Entity Instance: comparator:inst3|lpm_compare:LPM_COMPARE_component
+ 16. Parameter Settings for User Entity Instance: address_counter:inst4|lpm_counter:LPM_COUNTER_component
+ 17. Parameter Settings for User Entity Instance: multiplier:inst1|lpm_mult:lpm_mult_component
+ 18. Parameter Settings for User Entity Instance: memoryU:inst|altsyncram:altsyncram_component
+ 19. Parameter Settings for User Entity Instance: memoryV:inst2|altsyncram:altsyncram_component
+ 20. Parameter Settings for User Entity Instance: clock_divider:inst5|lpm_counter:LPM_COUNTER_component
+ 21. lpm_mult Parameter Settings by Entity Instance
+ 22. altsyncram Parameter Settings by Entity Instance
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
 
 
 
@@ -55,16 +56,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Apr 28 08:38:56 2026       ;
+; Analysis & Synthesis Status        ; Successful - Tue Apr 28 09:04:37 2026       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; vector-multiplier-fpga                      ;
 ; Top-level Entity Name              ; vector_multiplier_fpga                      ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 8                                           ;
-;     Total combinational functions  ; 8                                           ;
+; Total logic elements               ; 11                                          ;
+;     Total combinational functions  ; 11                                          ;
 ;     Dedicated logic registers      ; 8                                           ;
 ; Total registers                    ; 8                                           ;
-; Total pins                         ; 34                                          ;
+; Total pins                         ; 35                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 4,096                                       ;
 ; Embedded Multiplier 9-bit elements ; 1                                           ;
@@ -177,46 +178,50 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
-+----------------------------------+-----------------+------------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                                ; File Name with Absolute Path                                                                        ; Library ;
-+----------------------------------+-----------------+------------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
-; multiplier.vhd                   ; yes             ; User Wizard-Generated File               ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/multiplier.vhd             ;         ;
-; vector_multiplier_fpga.bdf       ; yes             ; Auto-Found Block Diagram/Schematic File  ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/vector_multiplier_fpga.bdf ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mult.tdf                                 ;         ;
-; aglobal181.inc                   ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                               ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc                              ;         ;
-; multcore.inc                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/multcore.inc                                 ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc                                 ;         ;
-; altshift.inc                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc                                 ;         ;
-; db/mult_inm.tdf                  ; yes             ; Auto-Generated Megafunction              ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/mult_inm.tdf            ;         ;
-; memoryu.vhd                      ; yes             ; Auto-Found Wizard-Generated File         ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/memoryu.vhd                ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                               ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                        ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                  ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                               ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                ;         ;
-; altrom.inc                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                   ;         ;
-; altram.inc                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                   ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                 ;         ;
-; db/altsyncram_goq3.tdf           ; yes             ; Auto-Generated Megafunction              ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/altsyncram_goq3.tdf     ;         ;
-; vector_u.mif                     ; yes             ; Auto-Found Memory Initialization File    ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/vector_u.mif               ;         ;
-; address_counter.vhd              ; yes             ; Auto-Found Wizard-Generated File         ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd        ;         ;
-; lpm_counter.tdf                  ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.tdf                              ;         ;
-; lpm_constant.inc                 ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_constant.inc                             ;         ;
-; cmpconst.inc                     ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cmpconst.inc                                 ;         ;
-; lpm_compare.inc                  ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_compare.inc                              ;         ;
-; lpm_counter.inc                  ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.inc                              ;         ;
-; dffeea.inc                       ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dffeea.inc                                   ;         ;
-; alt_counter_stratix.inc          ; yes             ; Megafunction                             ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_counter_stratix.inc                      ;         ;
-; db/cntr_44h.tdf                  ; yes             ; Auto-Generated Megafunction              ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/cntr_44h.tdf            ;         ;
-; memoryv.vhd                      ; yes             ; Auto-Found Wizard-Generated File         ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/memoryv.vhd                ;         ;
-; db/altsyncram_hoq3.tdf           ; yes             ; Auto-Generated Megafunction              ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/altsyncram_hoq3.tdf     ;         ;
-; vector_v.mif                     ; yes             ; Auto-Found Memory Initialization File    ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/vector_v.mif               ;         ;
-; clock_divider.vhd                ; yes             ; Auto-Found Wizard-Generated File         ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/clock_divider.vhd          ;         ;
-; db/cntr_54h.tdf                  ; yes             ; Auto-Generated Megafunction              ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/cntr_54h.tdf            ;         ;
-+----------------------------------+-----------------+------------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                      ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                        ; Library ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
+; multiplier.vhd                   ; yes             ; User Wizard-Generated File             ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/multiplier.vhd             ;         ;
+; vector_multiplier_fpga.bdf       ; yes             ; User Block Diagram/Schematic File      ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/vector_multiplier_fpga.bdf ;         ;
+; comparator.vhd                   ; yes             ; User Wizard-Generated File             ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/comparator.vhd             ;         ;
+; lpm_compare.tdf                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_compare.tdf                              ;         ;
+; comptree.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/comptree.inc                                 ;         ;
+; altshift.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc                                 ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                               ;         ;
+; db/cmpr_smi.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/cmpr_smi.tdf            ;         ;
+; address_counter.vhd              ; yes             ; Auto-Found Wizard-Generated File       ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd        ;         ;
+; lpm_counter.tdf                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.tdf                              ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_constant.inc                             ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                               ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc                              ;         ;
+; cmpconst.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cmpconst.inc                                 ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_compare.inc                              ;         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.inc                              ;         ;
+; dffeea.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dffeea.inc                                   ;         ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_counter_stratix.inc                      ;         ;
+; db/cntr_44h.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/cntr_44h.tdf            ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mult.tdf                                 ;         ;
+; multcore.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/multcore.inc                                 ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc                                 ;         ;
+; db/mult_inm.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/mult_inm.tdf            ;         ;
+; memoryu.vhd                      ; yes             ; Auto-Found Wizard-Generated File       ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/memoryu.vhd                ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                               ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                        ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                  ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                   ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                   ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                 ;         ;
+; db/altsyncram_goq3.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/altsyncram_goq3.tdf     ;         ;
+; vector_u.mif                     ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/vector_u.mif               ;         ;
+; memoryv.vhd                      ; yes             ; Auto-Found Wizard-Generated File       ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/memoryv.vhd                ;         ;
+; db/altsyncram_hoq3.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/altsyncram_hoq3.tdf     ;         ;
+; vector_v.mif                     ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/vector_v.mif               ;         ;
+; clock_divider.vhd                ; yes             ; Auto-Found Wizard-Generated File       ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/clock_divider.vhd          ;         ;
+; db/cntr_54h.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/cntr_54h.tdf            ;         ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -224,31 +229,31 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 8         ;
+; Estimated Total logic elements              ; 11        ;
 ;                                             ;           ;
-; Total combinational functions               ; 8         ;
+; Total combinational functions               ; 11        ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 0         ;
+;     -- 4 input functions                    ; 2         ;
 ;     -- 3 input functions                    ; 0         ;
-;     -- <=2 input functions                  ; 8         ;
+;     -- <=2 input functions                  ; 9         ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 1         ;
+;     -- normal mode                          ; 4         ;
 ;     -- arithmetic mode                      ; 7         ;
 ;                                             ;           ;
 ; Total registers                             ; 8         ;
 ;     -- Dedicated logic registers            ; 8         ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 34        ;
+; I/O pins                                    ; 35        ;
 ; Total memory bits                           ; 4096      ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 1         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 24        ;
-; Total fan-out                               ; 258       ;
-; Average fan-out                             ; 2.53      ;
+; Total fan-out                               ; 270       ;
+; Average fan-out                             ; 2.52      ;
 +---------------------------------------------+-----------+
 
 
@@ -257,10 +262,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                     ; Entity Name            ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |vector_multiplier_fpga                   ; 8 (0)               ; 8 (0)                     ; 4096        ; 0          ; 1            ; 1       ; 0         ; 34   ; 0            ; 0          ; |vector_multiplier_fpga                                                                                 ; vector_multiplier_fpga ; work         ;
+; |vector_multiplier_fpga                   ; 11 (0)              ; 8 (0)                     ; 4096        ; 0          ; 1            ; 1       ; 0         ; 35   ; 0            ; 0          ; |vector_multiplier_fpga                                                                                 ; vector_multiplier_fpga ; work         ;
 ;    |address_counter:inst4|                ; 8 (0)               ; 8 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |vector_multiplier_fpga|address_counter:inst4                                                           ; address_counter        ; work         ;
 ;       |lpm_counter:LPM_COUNTER_component| ; 8 (0)               ; 8 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |vector_multiplier_fpga|address_counter:inst4|lpm_counter:LPM_COUNTER_component                         ; lpm_counter            ; work         ;
 ;          |cntr_44h:auto_generated|        ; 8 (8)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |vector_multiplier_fpga|address_counter:inst4|lpm_counter:LPM_COUNTER_component|cntr_44h:auto_generated ; cntr_44h               ; work         ;
+;    |comparator:inst3|                     ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |vector_multiplier_fpga|comparator:inst3                                                                ; comparator             ; work         ;
+;       |lpm_compare:LPM_COMPARE_component| ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |vector_multiplier_fpga|comparator:inst3|lpm_compare:LPM_COMPARE_component                              ; lpm_compare            ; work         ;
+;          |cmpr_smi:auto_generated|        ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |vector_multiplier_fpga|comparator:inst3|lpm_compare:LPM_COMPARE_component|cmpr_smi:auto_generated      ; cmpr_smi               ; work         ;
 ;    |memoryU:inst|                         ; 0 (0)               ; 0 (0)                     ; 2048        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |vector_multiplier_fpga|memoryU:inst                                                                    ; memoryU                ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 2048        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |vector_multiplier_fpga|memoryU:inst|altsyncram:altsyncram_component                                    ; altsyncram             ; work         ;
 ;          |altsyncram_goq3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |vector_multiplier_fpga|memoryU:inst|altsyncram:altsyncram_component|altsyncram_goq3:auto_generated     ; altsyncram_goq3        ; work         ;
@@ -308,6 +316,7 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                          ; IP Include File ;
 +--------+--------------+---------+--------------+--------------+------------------------------------------+-----------------+
 ; Altera ; LPM_MULT     ; 18.1    ; N/A          ; N/A          ; |vector_multiplier_fpga|multiplier:inst1 ; multiplier.vhd  ;
+; Altera ; LPM_COMPARE  ; 18.1    ; N/A          ; N/A          ; |vector_multiplier_fpga|comparator:inst3 ; comparator.vhd  ;
 +--------+--------------+---------+--------------+--------------+------------------------------------------+-----------------+
 
 
@@ -352,6 +361,57 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +---------------------------------+--------------------+------+---------------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                     ;
 +---------------------------------+--------------------+------+---------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: comparator:inst3|lpm_compare:LPM_COMPARE_component ;
++------------------------+----------+-------------------------------------------------------------+
+; Parameter Name         ; Value    ; Type                                                        ;
++------------------------+----------+-------------------------------------------------------------+
+; lpm_width              ; 8        ; Signed Integer                                              ;
+; LPM_REPRESENTATION     ; UNSIGNED ; Untyped                                                     ;
+; LPM_PIPELINE           ; 0        ; Untyped                                                     ;
+; CHAIN_SIZE             ; 8        ; Untyped                                                     ;
+; ONE_INPUT_IS_CONSTANT  ; YES      ; Untyped                                                     ;
+; CARRY_CHAIN            ; MANUAL   ; Untyped                                                     ;
+; CASCADE_CHAIN          ; MANUAL   ; Untyped                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48       ; CARRY_CHAIN_LENGTH                                          ;
+; CASCADE_CHAIN_LENGTH   ; 2        ; CASCADE_CHAIN_LENGTH                                        ;
+; DEVICE_FAMILY          ; MAX 10   ; Untyped                                                     ;
+; CBXI_PARAMETER         ; cmpr_smi ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS      ; ON       ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF      ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS    ; ON       ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF      ; IGNORE_CASCADE                                              ;
++------------------------+----------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: address_counter:inst4|lpm_counter:LPM_COUNTER_component ;
++------------------------+-------------+---------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                          ;
++------------------------+-------------+---------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                  ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                ;
+; LPM_WIDTH              ; 8           ; Signed Integer                                                ;
+; LPM_DIRECTION          ; UP          ; Untyped                                                       ;
+; LPM_MODULUS            ; 0           ; Untyped                                                       ;
+; LPM_AVALUE             ; UNUSED      ; Untyped                                                       ;
+; LPM_SVALUE             ; UNUSED      ; Untyped                                                       ;
+; LPM_PORT_UPDOWN        ; PORT_UNUSED ; Untyped                                                       ;
+; DEVICE_FAMILY          ; MAX 10      ; Untyped                                                       ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                       ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                            ;
+; NOT_GATE_PUSH_BACK     ; ON          ; NOT_GATE_PUSH_BACK                                            ;
+; CARRY_CNT_EN           ; SMART       ; Untyped                                                       ;
+; LABWIDE_SCLR           ; ON          ; Untyped                                                       ;
+; USE_NEW_VERSION        ; TRUE        ; Untyped                                                       ;
+; CBXI_PARAMETER         ; cntr_44h    ; Untyped                                                       ;
++------------------------+-------------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------------------------------------------------------------------+
@@ -447,33 +507,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; DEVICE_FAMILY                      ; MAX 10               ; Untyped                       ;
 ; CBXI_PARAMETER                     ; altsyncram_goq3      ; Untyped                       ;
 +------------------------------------+----------------------+-------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: address_counter:inst4|lpm_counter:LPM_COUNTER_component ;
-+------------------------+-------------+---------------------------------------------------------------+
-; Parameter Name         ; Value       ; Type                                                          ;
-+------------------------+-------------+---------------------------------------------------------------+
-; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                    ;
-; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                  ;
-; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                  ;
-; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                ;
-; LPM_WIDTH              ; 8           ; Signed Integer                                                ;
-; LPM_DIRECTION          ; UP          ; Untyped                                                       ;
-; LPM_MODULUS            ; 0           ; Untyped                                                       ;
-; LPM_AVALUE             ; UNUSED      ; Untyped                                                       ;
-; LPM_SVALUE             ; UNUSED      ; Untyped                                                       ;
-; LPM_PORT_UPDOWN        ; PORT_UNUSED ; Untyped                                                       ;
-; DEVICE_FAMILY          ; MAX 10      ; Untyped                                                       ;
-; CARRY_CHAIN            ; MANUAL      ; Untyped                                                       ;
-; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                            ;
-; NOT_GATE_PUSH_BACK     ; ON          ; NOT_GATE_PUSH_BACK                                            ;
-; CARRY_CNT_EN           ; SMART       ; Untyped                                                       ;
-; LABWIDE_SCLR           ; ON          ; Untyped                                                       ;
-; USE_NEW_VERSION        ; TRUE        ; Untyped                                                       ;
-; CBXI_PARAMETER         ; cntr_44h    ; Untyped                                                       ;
-+------------------------+-------------+---------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -621,20 +654,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 34                          ;
+; boundary_port         ; 35                          ;
 ; cycloneiii_ff         ; 8                           ;
 ;     plain             ; 8                           ;
-; cycloneiii_lcell_comb ; 8                           ;
+; cycloneiii_lcell_comb ; 12                          ;
 ;     arith             ; 7                           ;
 ;         2 data inputs ; 7                           ;
-;     normal            ; 1                           ;
-;         1 data inputs ; 1                           ;
+;     normal            ; 5                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 1                           ;
+;         4 data inputs ; 2                           ;
 ; cycloneiii_mac_mult   ; 1                           ;
 ; cycloneiii_mac_out    ; 1                           ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.70                        ;
-; Average LUT depth     ; 0.47                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 0.77                        ;
 +-----------------------+-----------------------------+
 
 
@@ -643,7 +678,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -653,16 +688,44 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Apr 28 08:38:20 2026
+    Info: Processing started: Tue Apr 28 09:03:59 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vector_multiplier_fpga -c vector-multiplier-fpga
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file multiplier.vhd
     Info (12022): Found design unit 1: multiplier-SYN File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/multiplier.vhd Line: 52
     Info (12023): Found entity 1: multiplier File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/multiplier.vhd Line: 42
-Warning (12125): Using design file vector_multiplier_fpga.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file vector_multiplier_fpga.bdf
     Info (12023): Found entity 1: vector_multiplier_fpga
+Info (12021): Found 2 design units, including 1 entities, in source file comparator.vhd
+    Info (12022): Found design unit 1: comparator-SYN File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/comparator.vhd Line: 51
+    Info (12023): Found entity 1: comparator File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/comparator.vhd Line: 42
 Info (12127): Elaborating entity "vector_multiplier_fpga" for the top level hierarchy
+Info (12128): Elaborating entity "comparator" for hierarchy "comparator:inst3"
+Info (12128): Elaborating entity "lpm_compare" for hierarchy "comparator:inst3|lpm_compare:LPM_COMPARE_component" File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/comparator.vhd Line: 78
+Info (12130): Elaborated megafunction instantiation "comparator:inst3|lpm_compare:LPM_COMPARE_component" File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/comparator.vhd Line: 78
+Info (12133): Instantiated megafunction "comparator:inst3|lpm_compare:LPM_COMPARE_component" with the following parameter: File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/comparator.vhd Line: 78
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=YES"
+    Info (12134): Parameter "lpm_representation" = "UNSIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_COMPARE"
+    Info (12134): Parameter "lpm_width" = "8"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_smi.tdf
+    Info (12023): Found entity 1: cmpr_smi File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/cmpr_smi.tdf Line: 22
+Info (12128): Elaborating entity "cmpr_smi" for hierarchy "comparator:inst3|lpm_compare:LPM_COMPARE_component|cmpr_smi:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_compare.tdf Line: 280
+Warning (12125): Using design file address_counter.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: address_counter-SYN File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 51
+    Info (12023): Found entity 1: address_counter File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 42
+Info (12128): Elaborating entity "address_counter" for hierarchy "address_counter:inst4"
+Info (12128): Elaborating entity "lpm_counter" for hierarchy "address_counter:inst4|lpm_counter:LPM_COUNTER_component" File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 73
+Info (12130): Elaborated megafunction instantiation "address_counter:inst4|lpm_counter:LPM_COUNTER_component" File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 73
+Info (12133): Instantiated megafunction "address_counter:inst4|lpm_counter:LPM_COUNTER_component" with the following parameter: File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 73
+    Info (12134): Parameter "lpm_direction" = "UP"
+    Info (12134): Parameter "lpm_port_updown" = "PORT_UNUSED"
+    Info (12134): Parameter "lpm_type" = "LPM_COUNTER"
+    Info (12134): Parameter "lpm_width" = "8"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_44h.tdf
+    Info (12023): Found entity 1: cntr_44h File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/cntr_44h.tdf Line: 25
+Info (12128): Elaborating entity "cntr_44h" for hierarchy "address_counter:inst4|lpm_counter:LPM_COUNTER_component|cntr_44h:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.tdf Line: 258
 Info (12128): Elaborating entity "multiplier" for hierarchy "multiplier:inst1"
 Info (12128): Elaborating entity "lpm_mult" for hierarchy "multiplier:inst1|lpm_mult:lpm_mult_component" File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/multiplier.vhd Line: 77
 Info (12130): Elaborated megafunction instantiation "multiplier:inst1|lpm_mult:lpm_mult_component" File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/multiplier.vhd Line: 77
@@ -736,20 +799,6 @@ Info (12133): Instantiated megafunction "memoryU:inst|altsyncram:altsyncram_comp
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_goq3.tdf
     Info (12023): Found entity 1: altsyncram_goq3 File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/altsyncram_goq3.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_goq3" for hierarchy "memoryU:inst|altsyncram:altsyncram_component|altsyncram_goq3:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (12125): Using design file address_counter.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
-    Info (12022): Found design unit 1: address_counter-SYN File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 51
-    Info (12023): Found entity 1: address_counter File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 42
-Info (12128): Elaborating entity "address_counter" for hierarchy "address_counter:inst4"
-Info (12128): Elaborating entity "lpm_counter" for hierarchy "address_counter:inst4|lpm_counter:LPM_COUNTER_component" File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 73
-Info (12130): Elaborated megafunction instantiation "address_counter:inst4|lpm_counter:LPM_COUNTER_component" File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 73
-Info (12133): Instantiated megafunction "address_counter:inst4|lpm_counter:LPM_COUNTER_component" with the following parameter: File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/address_counter.vhd Line: 73
-    Info (12134): Parameter "lpm_direction" = "UP"
-    Info (12134): Parameter "lpm_port_updown" = "PORT_UNUSED"
-    Info (12134): Parameter "lpm_type" = "LPM_COUNTER"
-    Info (12134): Parameter "lpm_width" = "8"
-Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_44h.tdf
-    Info (12023): Found entity 1: cntr_44h File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/db/cntr_44h.tdf Line: 25
-Info (12128): Elaborating entity "cntr_44h" for hierarchy "address_counter:inst4|lpm_counter:LPM_COUNTER_component|cntr_44h:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.tdf Line: 258
 Warning (12125): Using design file memoryv.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: memoryv-SYN File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/memoryv.vhd Line: 52
     Info (12023): Found entity 1: memoryV File: C:/Users/otavi/OneDrive/Documentos/Reconfiguravel/vector-multiplier-fpga/memoryv.vhd Line: 42
@@ -830,16 +879,16 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "MAX10_CLK1_50"
-Info (21057): Implemented 59 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 63 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 8 logic cells
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 11 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 4815 megabytes
-    Info: Processing ended: Tue Apr 28 08:38:56 2026
-    Info: Elapsed time: 00:00:36
-    Info: Total CPU time (on all processors): 00:00:48
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4823 megabytes
+    Info: Processing ended: Tue Apr 28 09:04:37 2026
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:00:49
 
 

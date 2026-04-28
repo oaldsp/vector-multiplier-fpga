@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
--- DATE "04/28/2026 08:54:45"
+-- DATE "04/28/2026 09:07:58"
 
 -- 
 -- Device: Altera 10M50DAF484C7G Package FBGA484
@@ -89,8 +89,9 @@ USE IEEE.STD_LOGIC_1164.ALL;
 
 ENTITY 	vector_multiplier_fpga IS
     PORT (
-	result : OUT std_logic_vector(15 DOWNTO 0);
+	signaltap_trigger : OUT std_logic;
 	clk : IN std_logic;
+	result : OUT std_logic_vector(15 DOWNTO 0);
 	u : OUT std_logic_vector(7 DOWNTO 0);
 	v : OUT std_logic_vector(7 DOWNTO 0);
 	MAX10_CLK1_50 : IN std_logic
@@ -98,39 +99,40 @@ ENTITY 	vector_multiplier_fpga IS
 END vector_multiplier_fpga;
 
 -- Design Ports Information
--- result[15]	=>  Location: PIN_C2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[14]	=>  Location: PIN_D5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[13]	=>  Location: PIN_B2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[12]	=>  Location: PIN_C5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[11]	=>  Location: PIN_E8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[10]	=>  Location: PIN_C4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[9]	=>  Location: PIN_A2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[8]	=>  Location: PIN_B3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[7]	=>  Location: PIN_F7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[6]	=>  Location: PIN_C3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[5]	=>  Location: PIN_B4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[4]	=>  Location: PIN_E6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[3]	=>  Location: PIN_B5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[2]	=>  Location: PIN_A3,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[1]	=>  Location: PIN_D6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- result[0]	=>  Location: PIN_B1,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- u[7]	=>  Location: PIN_A4,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- u[6]	=>  Location: PIN_B7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- u[5]	=>  Location: PIN_C8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- u[4]	=>  Location: PIN_E11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- u[3]	=>  Location: PIN_C6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- u[2]	=>  Location: PIN_D8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- u[1]	=>  Location: PIN_A5,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- u[0]	=>  Location: PIN_A6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- v[7]	=>  Location: PIN_D9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- v[6]	=>  Location: PIN_D7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- v[5]	=>  Location: PIN_E10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- v[4]	=>  Location: PIN_J10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- v[3]	=>  Location: PIN_C7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- v[2]	=>  Location: PIN_E9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- v[1]	=>  Location: PIN_D10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- v[0]	=>  Location: PIN_H11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- MAX10_CLK1_50	=>  Location: PIN_H12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- signaltap_trigger	=>  Location: PIN_AA17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[15]	=>  Location: PIN_W13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[14]	=>  Location: PIN_AA12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[13]	=>  Location: PIN_P12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[12]	=>  Location: PIN_P13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[11]	=>  Location: PIN_V13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[10]	=>  Location: PIN_AA11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[9]	=>  Location: PIN_V12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[8]	=>  Location: PIN_R13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[7]	=>  Location: PIN_W14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[6]	=>  Location: PIN_AA13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[5]	=>  Location: PIN_W12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[4]	=>  Location: PIN_R12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[3]	=>  Location: PIN_AB13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[2]	=>  Location: PIN_AB12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[1]	=>  Location: PIN_AA14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- result[0]	=>  Location: PIN_AB14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- u[7]	=>  Location: PIN_Y17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- u[6]	=>  Location: PIN_V16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- u[5]	=>  Location: PIN_AA19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- u[4]	=>  Location: PIN_V14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- u[3]	=>  Location: PIN_AB20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- u[2]	=>  Location: PIN_Y16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- u[1]	=>  Location: PIN_W15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- u[0]	=>  Location: PIN_AA15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- v[7]	=>  Location: PIN_Y14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- v[6]	=>  Location: PIN_AB16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- v[5]	=>  Location: PIN_AA16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- v[4]	=>  Location: PIN_AB19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- v[3]	=>  Location: PIN_AB15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- v[2]	=>  Location: PIN_Y18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- v[1]	=>  Location: PIN_Y13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- v[0]	=>  Location: PIN_U15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- MAX10_CLK1_50	=>  Location: PIN_L20,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- clk	=>  Location: PIN_M8,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
@@ -144,8 +146,9 @@ SIGNAL devpor : std_logic := '1';
 SIGNAL ww_devoe : std_logic;
 SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
-SIGNAL ww_result : std_logic_vector(15 DOWNTO 0);
+SIGNAL ww_signaltap_trigger : std_logic;
 SIGNAL ww_clk : std_logic;
+SIGNAL ww_result : std_logic_vector(15 DOWNTO 0);
 SIGNAL ww_u : std_logic_vector(7 DOWNTO 0);
 SIGNAL ww_v : std_logic_vector(7 DOWNTO 0);
 SIGNAL ww_MAX10_CLK1_50 : std_logic;
@@ -166,6 +169,7 @@ SIGNAL \~QUARTUS_CREATED_GND~I_combout\ : std_logic;
 SIGNAL \~QUARTUS_CREATED_UNVM~~busy\ : std_logic;
 SIGNAL \~QUARTUS_CREATED_ADC1~~eoc\ : std_logic;
 SIGNAL \~QUARTUS_CREATED_ADC2~~eoc\ : std_logic;
+SIGNAL \signaltap_trigger~output_o\ : std_logic;
 SIGNAL \result[15]~output_o\ : std_logic;
 SIGNAL \result[14]~output_o\ : std_logic;
 SIGNAL \result[13]~output_o\ : std_logic;
@@ -215,6 +219,8 @@ SIGNAL \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita5~COUT\ : st
 SIGNAL \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita6~combout\ : std_logic;
 SIGNAL \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita6~COUT\ : std_logic;
 SIGNAL \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita7~combout\ : std_logic;
+SIGNAL \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~0_combout\ : std_logic;
+SIGNAL \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~1_combout\ : std_logic;
 SIGNAL \inst1|lpm_mult_component|auto_generated|mac_mult1~dataout\ : std_logic;
 SIGNAL \inst1|lpm_mult_component|auto_generated|mac_mult1~DATAOUT1\ : std_logic;
 SIGNAL \inst1|lpm_mult_component|auto_generated|mac_mult1~DATAOUT2\ : std_logic;
@@ -237,6 +243,8 @@ SIGNAL \inst1|lpm_mult_component|auto_generated|result\ : std_logic_vector(15 DO
 SIGNAL \inst|altsyncram_component|auto_generated|q_a\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \inst2|altsyncram_component|auto_generated|q_a\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire\ : std_logic_vector(0 DOWNTO 0);
+SIGNAL \inst3|LPM_COMPARE_component|auto_generated|ALT_INV_aneb_result_wire\ : std_logic_vector(0 DOWNTO 0);
 
 COMPONENT hard_block
     PORT (
@@ -247,8 +255,9 @@ END COMPONENT;
 
 BEGIN
 
-result <= ww_result;
+signaltap_trigger <= ww_signaltap_trigger;
 ww_clk <= clk;
+result <= ww_result;
 u <= ww_u;
 v <= ww_v;
 ww_MAX10_CLK1_50 <= MAX10_CLK1_50;
@@ -334,13 +343,14 @@ ww_devpor <= devpor;
 \~QUARTUS_CREATED_ADC2~_CHSEL_bus\ <= (\~QUARTUS_CREATED_GND~I_combout\ & \~QUARTUS_CREATED_GND~I_combout\ & \~QUARTUS_CREATED_GND~I_combout\ & \~QUARTUS_CREATED_GND~I_combout\ & \~QUARTUS_CREATED_GND~I_combout\);
 
 \clk~inputclkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \clk~input_o\);
+\inst3|LPM_COMPARE_component|auto_generated|ALT_INV_aneb_result_wire\(0) <= NOT \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire\(0);
 auto_generated_inst : hard_block
 PORT MAP (
 	devoe => ww_devoe,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor);
 
--- Location: LCCOMB_X44_Y46_N16
+-- Location: LCCOMB_X44_Y41_N24
 \~QUARTUS_CREATED_GND~I\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \~QUARTUS_CREATED_GND~I_combout\ = GND
@@ -353,7 +363,19 @@ GENERIC MAP (
 PORT MAP (
 	combout => \~QUARTUS_CREATED_GND~I_combout\);
 
--- Location: IOOBUF_X20_Y39_N16
+-- Location: IOOBUF_X58_Y0_N30
+\signaltap_trigger~output\ : fiftyfivenm_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \inst3|LPM_COMPARE_component|auto_generated|ALT_INV_aneb_result_wire\(0),
+	devoe => ww_devoe,
+	o => \signaltap_trigger~output_o\);
+
+-- Location: IOOBUF_X46_Y0_N2
 \result[15]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -365,7 +387,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[15]~output_o\);
 
--- Location: IOOBUF_X24_Y39_N30
+-- Location: IOOBUF_X40_Y0_N2
 \result[14]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -377,7 +399,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[14]~output_o\);
 
--- Location: IOOBUF_X22_Y39_N16
+-- Location: IOOBUF_X40_Y0_N30
 \result[13]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -389,7 +411,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[13]~output_o\);
 
--- Location: IOOBUF_X24_Y39_N23
+-- Location: IOOBUF_X51_Y0_N30
 \result[12]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -401,7 +423,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[12]~output_o\);
 
--- Location: IOOBUF_X24_Y39_N9
+-- Location: IOOBUF_X49_Y0_N30
 \result[11]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -413,7 +435,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[11]~output_o\);
 
--- Location: IOOBUF_X24_Y39_N2
+-- Location: IOOBUF_X40_Y0_N9
 \result[10]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -425,7 +447,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[10]~output_o\);
 
--- Location: IOOBUF_X26_Y39_N2
+-- Location: IOOBUF_X38_Y0_N23
 \result[9]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -437,7 +459,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[9]~output_o\);
 
--- Location: IOOBUF_X26_Y39_N16
+-- Location: IOOBUF_X49_Y0_N2
 \result[8]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -449,7 +471,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[8]~output_o\);
 
--- Location: IOOBUF_X24_Y39_N16
+-- Location: IOOBUF_X49_Y0_N23
 \result[7]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -461,7 +483,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[7]~output_o\);
 
--- Location: IOOBUF_X20_Y39_N9
+-- Location: IOOBUF_X49_Y0_N16
 \result[6]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -473,7 +495,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[6]~output_o\);
 
--- Location: IOOBUF_X26_Y39_N23
+-- Location: IOOBUF_X46_Y0_N9
 \result[5]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -485,7 +507,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[5]~output_o\);
 
--- Location: IOOBUF_X20_Y39_N2
+-- Location: IOOBUF_X38_Y0_N2
 \result[4]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -497,7 +519,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[4]~output_o\);
 
--- Location: IOOBUF_X26_Y39_N30
+-- Location: IOOBUF_X40_Y0_N16
 \result[3]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -509,7 +531,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[3]~output_o\);
 
--- Location: IOOBUF_X26_Y39_N9
+-- Location: IOOBUF_X40_Y0_N23
 \result[2]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -521,7 +543,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[2]~output_o\);
 
--- Location: IOOBUF_X22_Y39_N30
+-- Location: IOOBUF_X51_Y0_N23
 \result[1]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -533,7 +555,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[1]~output_o\);
 
--- Location: IOOBUF_X22_Y39_N23
+-- Location: IOOBUF_X49_Y0_N9
 \result[0]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -545,7 +567,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \result[0]~output_o\);
 
--- Location: IOOBUF_X31_Y39_N23
+-- Location: IOOBUF_X58_Y0_N23
 \u[7]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -557,7 +579,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \u[7]~output_o\);
 
--- Location: IOOBUF_X34_Y39_N23
+-- Location: IOOBUF_X56_Y0_N16
 \u[6]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -569,7 +591,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \u[6]~output_o\);
 
--- Location: IOOBUF_X36_Y39_N30
+-- Location: IOOBUF_X58_Y0_N16
 \u[5]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -581,7 +603,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \u[5]~output_o\);
 
--- Location: IOOBUF_X36_Y39_N16
+-- Location: IOOBUF_X54_Y0_N16
 \u[4]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -593,7 +615,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \u[4]~output_o\);
 
--- Location: IOOBUF_X29_Y39_N9
+-- Location: IOOBUF_X56_Y0_N2
 \u[3]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -605,7 +627,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \u[3]~output_o\);
 
--- Location: IOOBUF_X31_Y39_N2
+-- Location: IOOBUF_X54_Y0_N23
 \u[2]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -617,7 +639,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \u[2]~output_o\);
 
--- Location: IOOBUF_X31_Y39_N16
+-- Location: IOOBUF_X54_Y0_N9
 \u[1]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -629,7 +651,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \u[1]~output_o\);
 
--- Location: IOOBUF_X34_Y39_N30
+-- Location: IOOBUF_X54_Y0_N30
 \u[0]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -641,7 +663,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \u[0]~output_o\);
 
--- Location: IOOBUF_X31_Y39_N9
+-- Location: IOOBUF_X51_Y0_N2
 \v[7]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -653,7 +675,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \v[7]~output_o\);
 
--- Location: IOOBUF_X29_Y39_N16
+-- Location: IOOBUF_X54_Y0_N2
 \v[6]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -665,7 +687,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \v[6]~output_o\);
 
--- Location: IOOBUF_X36_Y39_N23
+-- Location: IOOBUF_X56_Y0_N30
 \v[5]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -677,7 +699,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \v[5]~output_o\);
 
--- Location: IOOBUF_X34_Y39_N9
+-- Location: IOOBUF_X56_Y0_N9
 \v[4]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -689,7 +711,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \v[4]~output_o\);
 
--- Location: IOOBUF_X34_Y39_N2
+-- Location: IOOBUF_X51_Y0_N16
 \v[3]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -701,7 +723,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \v[3]~output_o\);
 
--- Location: IOOBUF_X29_Y39_N2
+-- Location: IOOBUF_X58_Y0_N9
 \v[2]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -713,7 +735,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \v[2]~output_o\);
 
--- Location: IOOBUF_X31_Y39_N30
+-- Location: IOOBUF_X51_Y0_N9
 \v[1]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -725,7 +747,7 @@ PORT MAP (
 	devoe => ww_devoe,
 	o => \v[1]~output_o\);
 
--- Location: IOOBUF_X34_Y39_N16
+-- Location: IOOBUF_X56_Y0_N23
 \v[0]~output\ : fiftyfivenm_io_obuf
 -- pragma translate_off
 GENERIC MAP (
@@ -762,7 +784,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \clk~inputclkctrl_outclk\);
 
--- Location: LCCOMB_X34_Y38_N14
+-- Location: LCCOMB_X54_Y3_N14
 \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita0~combout\ = \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(0) $ (VCC)
@@ -779,7 +801,7 @@ PORT MAP (
 	combout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita0~combout\,
 	cout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita0~COUT\);
 
--- Location: FF_X34_Y38_N15
+-- Location: FF_X54_Y3_N15
 \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -793,7 +815,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(0));
 
--- Location: LCCOMB_X34_Y38_N16
+-- Location: LCCOMB_X54_Y3_N16
 \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita1~combout\ = (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(1) & (!\inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita0~COUT\)) # 
@@ -812,7 +834,7 @@ PORT MAP (
 	combout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita1~combout\,
 	cout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita1~COUT\);
 
--- Location: FF_X34_Y38_N17
+-- Location: FF_X54_Y3_N17
 \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -826,7 +848,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(1));
 
--- Location: LCCOMB_X34_Y38_N18
+-- Location: LCCOMB_X54_Y3_N18
 \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita2~combout\ = (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(2) & (\inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita1~COUT\ $ (GND))) # 
@@ -845,7 +867,7 @@ PORT MAP (
 	combout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita2~combout\,
 	cout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita2~COUT\);
 
--- Location: FF_X34_Y38_N19
+-- Location: FF_X54_Y3_N19
 \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -859,7 +881,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(2));
 
--- Location: LCCOMB_X34_Y38_N20
+-- Location: LCCOMB_X54_Y3_N20
 \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita3~combout\ = (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(3) & (!\inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita2~COUT\)) # 
@@ -878,7 +900,7 @@ PORT MAP (
 	combout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita3~combout\,
 	cout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita3~COUT\);
 
--- Location: FF_X34_Y38_N21
+-- Location: FF_X54_Y3_N21
 \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -892,7 +914,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(3));
 
--- Location: LCCOMB_X34_Y38_N22
+-- Location: LCCOMB_X54_Y3_N22
 \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita4~combout\ = (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(4) & (\inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita3~COUT\ $ (GND))) # 
@@ -911,7 +933,7 @@ PORT MAP (
 	combout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita4~combout\,
 	cout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita4~COUT\);
 
--- Location: FF_X34_Y38_N23
+-- Location: FF_X54_Y3_N23
 \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -925,7 +947,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(4));
 
--- Location: LCCOMB_X34_Y38_N24
+-- Location: LCCOMB_X54_Y3_N24
 \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita5~combout\ = (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(5) & (!\inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita4~COUT\)) # 
@@ -944,7 +966,7 @@ PORT MAP (
 	combout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita5~combout\,
 	cout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita5~COUT\);
 
--- Location: FF_X34_Y38_N25
+-- Location: FF_X54_Y3_N25
 \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -958,7 +980,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(5));
 
--- Location: LCCOMB_X34_Y38_N26
+-- Location: LCCOMB_X54_Y3_N26
 \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita6~combout\ = (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(6) & (\inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita5~COUT\ $ (GND))) # 
@@ -977,7 +999,7 @@ PORT MAP (
 	combout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita6~combout\,
 	cout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita6~COUT\);
 
--- Location: FF_X34_Y38_N27
+-- Location: FF_X54_Y3_N27
 \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -991,7 +1013,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(6));
 
--- Location: LCCOMB_X34_Y38_N28
+-- Location: LCCOMB_X54_Y3_N28
 \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita7\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita7~combout\ = \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita6~COUT\ $ (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(7))
@@ -1006,7 +1028,7 @@ PORT MAP (
 	cin => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita6~COUT\,
 	combout => \inst4|LPM_COUNTER_component|auto_generated|counter_comb_bita7~combout\);
 
--- Location: FF_X34_Y38_N29
+-- Location: FF_X54_Y3_N29
 \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1020,7 +1042,58 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(7));
 
--- Location: M9K_X33_Y38_N0
+-- Location: LCCOMB_X54_Y3_N12
+\inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~0_combout\ = (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(4)) # (((\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(6)) # 
+-- (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(5))) # (!\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(7)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111111011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(4),
+	datab => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(7),
+	datac => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(6),
+	datad => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(5),
+	combout => \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~0_combout\);
+
+-- Location: LCCOMB_X54_Y3_N10
+\inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~1_combout\ = (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(3)) # ((\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(1)) # 
+-- ((\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(0)) # (\inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(2))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111111111110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(3),
+	datab => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(1),
+	datac => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(0),
+	datad => \inst4|LPM_COUNTER_component|auto_generated|counter_reg_bit\(2),
+	combout => \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~1_combout\);
+
+-- Location: LCCOMB_X54_Y3_N4
+\inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire\(0) = (\inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~0_combout\) # (\inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~1_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111110101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~0_combout\,
+	datad => \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire[0]~1_combout\,
+	combout => \inst3|LPM_COMPARE_component|auto_generated|aneb_result_wire\(0));
+
+-- Location: M9K_X53_Y3_N0
 \inst|altsyncram_component|auto_generated|ram_block1a0\ : fiftyfivenm_ram_block
 -- pragma translate_off
 GENERIC MAP (
@@ -1058,7 +1131,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	portadataout => \inst|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus\);
 
--- Location: DSPMULT_X28_Y35_N0
+-- Location: DSPMULT_X48_Y1_N0
 \inst1|lpm_mult_component|auto_generated|mac_mult1\ : fiftyfivenm_mac_mult
 -- pragma translate_off
 GENERIC MAP (
@@ -1078,7 +1151,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	dataout => \inst1|lpm_mult_component|auto_generated|mac_mult1_DATAOUT_bus\);
 
--- Location: DSPOUT_X28_Y35_N2
+-- Location: DSPOUT_X48_Y1_N2
 \inst1|lpm_mult_component|auto_generated|mac_out2\ : fiftyfivenm_mac_out
 -- pragma translate_off
 GENERIC MAP (
@@ -1091,7 +1164,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	dataout => \inst1|lpm_mult_component|auto_generated|mac_out2_DATAOUT_bus\);
 
--- Location: IOIBUF_X49_Y54_N15
+-- Location: IOIBUF_X78_Y37_N1
 \MAX10_CLK1_50~input\ : fiftyfivenm_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -1171,6 +1244,8 @@ PORT MAP (
 	tsen => \~QUARTUS_CREATED_GND~I_combout\,
 	chsel => \~QUARTUS_CREATED_ADC2~_CHSEL_bus\,
 	eoc => \~QUARTUS_CREATED_ADC2~~eoc\);
+
+ww_signaltap_trigger <= \signaltap_trigger~output_o\;
 
 ww_result(15) <= \result[15]~output_o\;
 

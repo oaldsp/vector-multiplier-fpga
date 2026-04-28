@@ -4,6 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "signaltap_trigger",
+					"strict" : false
+				},
+				{
 					"name" : "result[15]",
 					"strict" : false
 				},

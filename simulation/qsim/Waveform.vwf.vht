@@ -18,7 +18,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "04/28/2026 08:54:39"
+-- Generated on "04/28/2026 09:07:54"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          vector_multiplier_fpga
 -- 
@@ -36,6 +36,7 @@ ARCHITECTURE vector_multiplier_fpga_arch OF vector_multiplier_fpga_vhd_vec_tst I
 SIGNAL clk : STD_LOGIC;
 SIGNAL MAX10_CLK1_50 : STD_LOGIC;
 SIGNAL result : STD_LOGIC_VECTOR(15 DOWNTO 0);
+SIGNAL signaltap_trigger : STD_LOGIC;
 SIGNAL u : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL v : STD_LOGIC_VECTOR(7 DOWNTO 0);
 COMPONENT vector_multiplier_fpga
@@ -43,6 +44,7 @@ COMPONENT vector_multiplier_fpga
 	clk : IN STD_LOGIC;
 	MAX10_CLK1_50 : IN STD_LOGIC;
 	result : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+	signaltap_trigger : OUT STD_LOGIC;
 	u : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 	v : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	);
@@ -54,6 +56,7 @@ BEGIN
 	clk => clk,
 	MAX10_CLK1_50 => MAX10_CLK1_50,
 	result => result,
+	signaltap_trigger => signaltap_trigger,
 	u => u,
 	v => v
 	);
@@ -63,9 +66,9 @@ t_prcs_clk: PROCESS
 BEGIN
 LOOP
 	clk <= '0';
-	WAIT FOR 5000 ps;
+	WAIT FOR 2500 ps;
 	clk <= '1';
-	WAIT FOR 5000 ps;
+	WAIT FOR 2500 ps;
 	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
 END LOOP;
 END PROCESS t_prcs_clk;

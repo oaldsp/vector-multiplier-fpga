@@ -1,15 +1,15 @@
-Fitter Status : Successful - Tue Apr 28 08:39:34 2026
+Fitter Status : Successful - Tue Apr 28 09:05:10 2026
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : vector-multiplier-fpga
 Top-level Entity Name : vector_multiplier_fpga
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 9 / 49,760 ( < 1 % )
-    Total combinational functions : 9 / 49,760 ( < 1 % )
+Total logic elements : 12 / 49,760 ( < 1 % )
+    Total combinational functions : 12 / 49,760 ( < 1 % )
     Dedicated logic registers : 8 / 49,760 ( < 1 % )
 Total registers : 8
-Total pins : 34 / 360 ( 9 % )
+Total pins : 35 / 360 ( 10 % )
 Total virtual pins : 0
 Total memory bits : 4,096 / 1,677,312 ( < 1 % )
 Embedded Multiplier 9-bit elements : 1 / 288 ( < 1 % )
